@@ -1,0 +1,36 @@
+.App {
+
+}
+
+
+.todoList {
+  background-color: darkgreen;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.todoList-header {
+  background-color: darkviolet;
+}
+
+
+.todoList > div {
+  padding: 10px;
+}
+
+
+
+.todoList-task {
+  background-color: aqua;
+
+}
+
+
+.todoList-footer {
+  background-color: brown;
+}
+
+
+.filter-active {
+  background-color: darkgreen;
+}
