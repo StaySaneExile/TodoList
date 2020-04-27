@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 import TodoTask from "./TodoTask"
+import PropTypes from 'prop-types';
+import TodoFooter from "./TodoFooter";
 
 class TodoTasks extends React.Component {
     render = () => {
         let tasksElement = this.props.tasks.map(task => {
             return (
-                <TodoTask title={task.title} isDone={task.isDone} priority={task.priority} />
+                <TodoTask task={task} changeStatus={this.props.changeStatus} />
             )
         });
 
@@ -20,4 +22,7 @@ class TodoTasks extends React.Component {
 }
 
 export default TodoTasks;
+TodoTasks.propTypes = {
+    tasks: PropTypes.array
+}
 

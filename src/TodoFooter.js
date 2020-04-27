@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import PropTypes from 'prop-types';
 
 class TodoFooter extends React.Component {
     render = () => {
@@ -10,9 +10,14 @@ class TodoFooter extends React.Component {
 
         return (
             <div className="todoList-footer">
-                         <button className={classForAll}>All</button>
-                         <button className={classForCompleted}>Completed</button>
-                         <button className={classForActive}>Active</button>
+                         <button className={classForAll}
+                                 onClick={()=> {this.props.changeFilter('All')}}>All</button>
+
+                         <button className={classForCompleted}
+                                 onClick={()=> {this.props.changeFilter('Completed')}}>Completed</button>
+
+                         <button className={classForActive}
+                                 onClick={()=> {this.props.changeFilter('Active')}}>Active</button>
                      </div>
 
         );
@@ -20,4 +25,7 @@ class TodoFooter extends React.Component {
 }
 
 export default TodoFooter;
+TodoFooter.propTypes = {
+    filterValue: PropTypes.string
+}
 

@@ -2,21 +2,35 @@ import React from 'react';
 
 
 class TodoHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.newTaskTitleRef = React.createRef();
+    };
+
+    onAddTaskClick = () => {
+        let newTitle = this.newTaskTitleRef.current.value;
+        this.newTaskTitleRef.current.value = "";
+        this.props.addTask(newTitle)
+    }
+
     render = () => {
         return (
             <div className="todoList">
                 <div className="todoList-header">
                     <h3 className="todoList-header__title">What to Learn</h3>
                     <div className="todoList-newTaskForm">
-                        <input type="text" placeholder="New task name"/>
-                        <button>Add</button>
+                        <input
+                            ref={this.newTaskTitleRef}
+                            type="text"
+                            placeholder="New task name"/>
+                        <button onClick={this.onAddTaskClick}>Add</button>
                     </div>
                 </div>
             </div>
-                );
-                }
-                }
+        );
+    }
+}
 
 
-                    export default TodoHeader;
+export default TodoHeader;
 
