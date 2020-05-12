@@ -8,7 +8,10 @@ class TodoTasks extends React.Component {
     render = () => {
         let tasksElement = this.props.tasks.map(task => {
             return (
-                <TodoTask task={task} changeStatus={this.props.changeStatus} />
+                <TodoTask task={task}
+                          onDeleteTask={this.props.onDeleteTask}
+                          changeTitle={this.props.changeTitle}
+                          changeStatus={this.props.changeStatus} />
             )
         });
 
