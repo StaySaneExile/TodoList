@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './TodoList.css';
 import TodoTask from "./TodoTask"
 import PropTypes from 'prop-types';
 import TodoFooter from "./TodoFooter";

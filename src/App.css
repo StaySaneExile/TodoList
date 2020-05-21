@@ -1,35 +1,6 @@
 .App {
+  display: flex;
+  flex-direction: row;
 }
 
 
-.todoList {
-  width: 700px;
-  margin: 0 auto;
-  background-color: burlywood;
-}
-
-.todoList-header {
-}
-
-.todoList > div {
-  padding: 10px;
-}
-.todoList-task {
-}
-.todoList-footer {
-}
-.filter-active {
-  background-color: darkgreen;
-}
-.error {
-  border-color: red;
-}
-.todoList-task.done {
-  opacity: 0.5;
-}
-.delete {
-  background: url("cross.svg") no-repeat center;
-  background-size: contain;
-  cursor: pointer;
-  padding: 7px;
-}

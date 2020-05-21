@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './TodoList.css';
 import PropTypes from 'prop-types';
 
 class TodoFooter extends React.Component {
