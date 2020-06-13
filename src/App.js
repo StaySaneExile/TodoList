@@ -2,10 +2,14 @@ import React from 'react';
 import './App.css';
 import TodoList from "./TodoList";
 import AddNewTitle from "./AddNewTitle";
+import {connect} from "react-redux";
+import { createTodoListAC, deleteTodoListAC, setTodoListsAC} from "./reducer";
+import axios from "axios";
+
 
 
 class App extends React.Component {
-    state = {
+  /*  state = {
         todoList: [],
     }
     nextIdTodoList = 0;
@@ -14,6 +18,7 @@ class App extends React.Component {
         let stateAsString = JSON.stringify(this.state);
         localStorage.setItem('stateTodoList' + this.props.id , stateAsString)
     }
+    /!*
     restoreState = () => {
         let state = {
             todoList: [],
@@ -29,28 +34,60 @@ class App extends React.Component {
                 }
             })
         });
-    }
+    }*!/*/
     componentDidMount() {
         this.restoreState();
     }
+    restoreState = () => {
+        axios.get("https://social-network.samuraijs.com/api/1.1/todo-lists",
+            {withCredentials: true})
+            .then(res => {
+                this.props.setTodolists(res.data);
+            });
+    }
+    addTodoList = (title) => {
+        axios.post("https://social-network.samuraijs.com/api/1.1/todo-lists",
+            {title: title},
+            {withCredentials: true,
+                headers: {'API-KEY': '55c7683d-910d-4237-970d-b8f19c995706'}
+            }).then(res => {
+            if(res.data.resultCode === 0) {
+                this.props.createtodolists(res.data.data.item)
+            }
+        });
+        }
 
-    addTodoList = (newList) => {
-        let newTodoList = {
-            id: this.nextIdTodoList,
-            title: newList};
-        this.nextIdTodoList ++;
-        this.setState({todoList: [...this.state.todoList, newTodoList]}, this.saveState)
+    onDeleteTodoList = (Id) => {
+        axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/${Id}`,
+            {withCredentials: true,
+                headers: {'API-KEY': '55c7683d-910d-4237-970d-b8f19c995706'}
+            }).then(res => {
+
+            if(res.data.resultCode === 0) {
+                this.props.deleteTodoList(Id)
+            }});
     }
 
     render = () => {
-        const todoLists = this.state.todoList.map(t => <TodoList key={t.id}
-                                                                 id={t.id} title={t.title}/>)
+        const todoLists = this.props.todolists.map
+        (t => <TodoList key={t.id}
+                        id={t.id}
+                        title={t.title}
+                        onDeleteTodoList={this.onDeleteTodoList}
+                        tasks={t.tasks}/>)
+
         return (
-            <div>
-                <div>
-                    <AddNewTitle addItem={this.addTodoList}/>
+            <div className='App'>
+                <div className='main-header'>
+                    <span className='title'>Which task my lord</span>
+                    <AddNewTitle inputStyleErr={'input-error'}
+                                 inputStyleDef={'input'}
+                                 buttonStyle={'header-button'}
+                                 buttonTitle={'Order'}
+                                 style={'add-title'}
+                                 addItem={this.addTodoList}/>
                 </div>
-                <div className='App'>
+                <div className='Appp'>
                     {todoLists}
                 </div>
             </div>
@@ -58,7 +95,29 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        todolists: state.todolists
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createtodolists: (newTodoList)=> {
+            dispatch(createTodoListAC(newTodoList))
+        },
+        deleteTodoList: (newTodoList) => {
+
+            dispatch(deleteTodoListAC(newTodoList))
+        },
+        setTodolists: (todolists)=> {
+            dispatch(setTodoListsAC(todolists))
+        }
+    }
+
+}
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+export default ConnectedApp;
 
 
 

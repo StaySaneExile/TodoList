@@ -6,12 +6,12 @@ import TodoFooter from "./TodoFooter";
 
 class TodoTasks extends React.Component {
     render = () => {
-        let tasksElement = this.props.tasks.map(task => {
+        let tasksElement = this.props.task.map(task => {
             return (
                 <TodoTask task={task}
                           onDeleteTask={this.props.onDeleteTask}
                           changeTitle={this.props.changeTitle}
-                          changeStatus={this.props.changeStatus} />
+                          changeStatus={this.props.changeStatus}/>
             )
         });
 
