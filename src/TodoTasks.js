@@ -1,8 +1,6 @@
 import React from 'react';
 import './TodoList.css';
 import TodoTask from "./TodoTask"
-import PropTypes from 'prop-types';
-import TodoFooter from "./TodoFooter";
 
 class TodoTasks extends React.Component {
     render = () => {
@@ -25,7 +23,5 @@ class TodoTasks extends React.Component {
 }
 
 export default TodoTasks;
-TodoTasks.propTypes = {
-    tasks: PropTypes.array
-}
+
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import './TodoList.css';
-import PropTypes from 'prop-types';
 
 class TodoFooter extends React.Component {
     state = {
@@ -35,7 +34,4 @@ class TodoFooter extends React.Component {
 }
 
 export default TodoFooter;
-TodoFooter.propTypes = {
-    filterValue: PropTypes.string
-}
 

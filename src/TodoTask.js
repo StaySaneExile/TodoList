@@ -43,7 +43,6 @@ class TodoTask extends React.Component {
                              autoFocus={true}
                              onBlur={this.deActivatedEditMode}/>
                     : <span onClick={this.activatedEditMode}>
-
                         {this.props.task.title}: </span>
                 }
                 <span> - {this.props.task.priority}</span>
