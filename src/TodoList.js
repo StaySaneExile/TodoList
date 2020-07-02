@@ -1,8 +1,8 @@
 import React from 'react';
 import './TodoList.css';
-import TodoHeader from "./TodoHeader";
-import TodoTasks from "./TodoTasks";
-import TodoFooter from "./TodoFooter"
+import TodoHeader from "./TodoList/TodoHeader";
+import TodoTasks from "./TodoList/TodoTasks";
+import TodoFooter from "./TodoList/TodoFooter";
 import AddNewTitle from "./AddNewTitle";
 import {connect} from "react-redux";
 import {
@@ -10,8 +10,10 @@ import {
     deleteTask, getTasks,
 } from "./reducer";
 
-class TodoList extends React.Component {
 
+
+
+class TodoList extends React.Component {
     state = {
         tasks: [],
         filterValue: "All",
@@ -71,7 +73,11 @@ class TodoList extends React.Component {
                             changeTitleTodo={this.changeTitleTodo}
                             onDeleteTodoList={this.props.onDeleteTodoList}
                             todoListId={this.props.id}/>
-                <AddNewTitle style={'add-task'} addItem={this.addTask} holder={'new task me'}/>
+                <AddNewTitle buttonStyle={'taskButton'}
+                             buttonTitle={'+ task'}
+                             style={'add-task'}
+                             addItem={this.addTask}
+                             holder={'new task me'}/>
                 <TodoTasks task={filtredTasks}
                            onDeleteTask={this.onDeleteTask}
                            changeTitle={this.changeTitle}

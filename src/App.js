@@ -9,12 +9,12 @@ import {
 } from "./reducer";
 
 
-
 class App extends React.Component {
 
     componentDidMount() {
         this.restoreState();
     }
+
     restoreState = () => {
         this.props.getTodolists()
     }
@@ -26,7 +26,6 @@ class App extends React.Component {
     }
 
 
-
     render = () => {
         const todoLists = this.props.todolists.map
         (t => <TodoList key={t.id}
@@ -36,18 +35,20 @@ class App extends React.Component {
                         tasks={t.tasks}/>)
 
         return (
-            <div className='App'>
-                <div className='main-header'>
-                    <span className='title'>Which task my lord</span>
-                    <AddNewTitle inputStyleErr={'input-error'}
-                                 inputStyleDef={'input'}
-                                 buttonStyle={'header-button'}
-                                 buttonTitle={'Order'}
-                                 style={'add-title'}
-                                 addItem={this.addTodoList}/>
-                </div>
-                <div className='Appp'>
-                    {todoLists}
+            <div className='backgroung'>
+                <div className='App'>
+                    <div className='main-header'>
+                        <span className='title'>Which task</span>
+                        <AddNewTitle inputStyleErr={'input-error'}
+                                     inputStyleDef={'input'}
+                                     buttonStyle={'header-button'}
+                                     buttonTitle={'Order'}
+                                     style={'add-title'}
+                                     addItem={this.addTodoList}/>
+                    </div>
+                    <div className='Appp'>
+                        {todoLists}
+                    </div>
                 </div>
             </div>
         )

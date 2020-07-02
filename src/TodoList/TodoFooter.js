@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoList.css';
+import './TodoFooter.css';
 
 class TodoFooter extends React.Component {
     state = {
@@ -12,9 +12,9 @@ class TodoFooter extends React.Component {
     onHideFiltersClick = () => {this.setState({isHidden: true})};
 
     render = () => {
-        let classForAll = this.props.filterValue === "All" ? "filter-active" : "";
-        let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "";
-        let classForActive = this.props.filterValue === "Active" ? "filter-active" : "";
+        let classForAll = this.props.filterValue === "All" ? "filter-active" : "default_button";
+        let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "default_button";
+        let classForActive = this.props.filterValue === "Active" ? "filter-active" : "default_button";
 
         return (
             <div className="todoList-footer">

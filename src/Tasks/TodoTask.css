@@ -1,0 +1,45 @@
+.task {
+
+}
+
+.title_task {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #623f1a;
+    letter-spacing: 2px;
+}
+
+.delete {
+    background: url("./../images/delete.png") no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.checkbox {
+    display: flex;
+    margin-right: 15px;
+    background-color: black;
+    width: 15px;
+    height: 15px;
+}
+
+.taskButton {
+    margin-left: 15px;
+    min-width: 45px;
+    height: 20px;
+    background-color: #62b5cf;
+    border-radius: 3px;
+    border: none;
+}
+
+.todoList-task_done {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+}
+.todoList-task {
+    display: flex;
+    align-items: center;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import './TodoList.css';
-import TodoTask from "./TodoTask"
+import '../TodoList.css';
+import TodoTask from "../Tasks/TodoTask";
 
 class TodoTasks extends React.Component {
     render = () => {

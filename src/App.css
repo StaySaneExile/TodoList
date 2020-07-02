@@ -1,19 +1,26 @@
-.App {
-  height: 100%;
-  width: 100%;
-  background: url("3.jpg") no-repeat center;
+.backgroung {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("./images/backgr.jpg") no-repeat center;
 }
-
+.App {
+  min-width: 600px;
+  height:600px;
+  border: 1px solid;
+}
 .title {
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   letter-spacing: 2px;
-  color: antiquewhite;
+  color: #623f1a;
   text-shadow: 1px 1px 2px white, 0px 0px 10px white;
   margin-right: 10px;
 }
 .header-button {
-  background-color: inherit;
+  background-color: burlywood;
+  border: none;
   border-radius: 7px;
   height: 35px;
   font-size: large;
@@ -26,17 +33,17 @@
 .input-error {
   border-color: red;
   width: 140px;
-  height: 25px;
+  height: 20px;
   background: inherit;
   border-radius: 5px;
   margin-right: 10px;
 }
 .input {
   width: 140px;
-  height: 25px;
-  background-color: inherit;
+  height: 20px;
+  background-color: #cfc2b2;
   border-radius: 5px;
-  border-color: white;
+  border: none;
   margin-right: 10px;
   color: white;
 }
@@ -48,9 +55,5 @@
   padding: 15px;
 }
 
-.add-title {
-
-
-}
 
 
