@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/TodoList/static/css/main.453f9617.chunk.css",
+    "main.js": "/TodoList/static/js/main.f42dbf42.chunk.js",
+    "main.js.map": "/TodoList/static/js/main.f42dbf42.chunk.js.map",
+    "runtime~main.js": "/TodoList/static/js/runtime~main.90b1048d.js",
+    "runtime~main.js.map": "/TodoList/static/js/runtime~main.90b1048d.js.map",
+    "static/js/2.59d346c4.chunk.js": "/TodoList/static/js/2.59d346c4.chunk.js",
+    "static/js/2.59d346c4.chunk.js.map": "/TodoList/static/js/2.59d346c4.chunk.js.map",
+    "index.html": "/TodoList/index.html",
+    "precache-manifest.9e49fb400ef6126bd2137c05aba36c6c.js": "/TodoList/precache-manifest.9e49fb400ef6126bd2137c05aba36c6c.js",
+    "service-worker.js": "/TodoList/service-worker.js",
+    "static/css/main.453f9617.chunk.css.map": "/TodoList/static/css/main.453f9617.chunk.css.map",
+    "static/media/App.css": "/TodoList/static/media/backgr.052865c3.jpg",
+    "static/media/TodoTask.css": "/TodoList/static/media/delete.2ea58cae.png"
+  }
+}
