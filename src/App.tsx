@@ -7,21 +7,32 @@ import {
     createTodolists,
     deleteTodolist, getTodolists,
 } from "./reducer";
+import {AppStateType} from "./Store";
+import {TodoListType} from "./Types/enteties";
 
 
-class App extends React.Component {
+type MapStatePropsType = {
+    todolists: Array<TodoListType>
+}
+type MapDispatchPropsType = {
+    getTodolists: ()=> void
+    deleteTodolist: (Id: string)=> void
+    createTodolists: (title: string)=> void
+}
+
+
+class App extends React.Component<MapStatePropsType & MapDispatchPropsType> {
 
     componentDidMount() {
         this.restoreState();
     }
-
     restoreState = () => {
         this.props.getTodolists()
     }
-    addTodoList = (title) => {
+    addTodoList = (title: string) => {
         this.props.createTodolists(title)
     }
-    onDeleteTodoList = (Id) => {
+    onDeleteTodoList = (Id: string) => {
         this.props.deleteTodolist(Id)
     }
 
@@ -55,14 +66,18 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType):MapStatePropsType => {
     return {
-        todolists: state.todolists
+        todolists: state.reducer.todolists
     }
 }
 
 
-const ConnectedApp = connect(mapStateToProps, {deleteTodolist, createTodolists, getTodolists})(App);
+const ConnectedApp = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {
+    deleteTodolist,
+    createTodolists,
+    getTodolists
+})(App);
 export default ConnectedApp;
 
 

@@ -6,9 +6,12 @@
   background: url("./images/backgr.jpg") no-repeat center;
 }
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-width: 600px;
   height:600px;
-  border: 1px solid;
 }
 .title {
   font-family: 'Poppins', sans-serif;

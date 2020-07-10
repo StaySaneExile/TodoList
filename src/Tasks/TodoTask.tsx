@@ -1,8 +1,22 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import './TodoTask.css';
+import {TaskType} from "../Types/enteties";
 
-class TodoTask extends React.Component {
-    state = {
+type OwnType = {
+    task: TaskType
+    onDeleteTask: (taskId: string) =>void
+    changeTitle: (task: TaskType, title: string) => void
+    changeStatus: (newTask: TaskType, status: boolean) => void
+}
+type StateType = {
+    isEditMode: boolean,
+    title: string
+}
+
+
+
+class TodoTask extends React.Component<OwnType, StateType> {
+    state:StateType = {
         isEditMode: false,
         title: this.props.task.title
     }
@@ -13,10 +27,10 @@ class TodoTask extends React.Component {
         this.setState({isEditMode: false})
         this.props.changeTitle(this.props.task, this.state.title)
     }
-    onIsDoneChanged = (e) => {
+    onIsDoneChanged = (e: ChangeEvent<HTMLInputElement>) => {
         this.props.changeStatus(this.props.task, e.currentTarget.checked)
     };
-    onTitleChanged = (e) => {
+    onTitleChanged = (e: ChangeEvent<HTMLInputElement>) => {
         this.setState({
             title: e.currentTarget.value
         })
@@ -49,7 +63,6 @@ class TodoTask extends React.Component {
                         {this.props.task.title}</span>
                         </div>
                     }
-                    {/*<span> - {this.props.task.priority}</span>*/}
                     <span className='delete' onClick={this.onDeleteTask}/>
                 </div>
             </div>

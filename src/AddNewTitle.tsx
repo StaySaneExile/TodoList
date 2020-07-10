@@ -1,8 +1,25 @@
-import React from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import './App.css';
 
-class AddNewTitle extends React.Component {
-    state = {
+type OwnPropsType = {
+    addItem: (title: string) => void
+    inputStyleErr?: string
+    inputStyleDef?: string
+    buttonStyle?: string
+    buttonTitle?: string
+    holder?: string
+    style?: string
+}
+
+type StateType = {
+    error: boolean
+    inputValue: string
+}
+
+
+
+class AddNewTitle extends React.Component<OwnPropsType, StateType> {
+    state: StateType = {
         error: false,
         inputValue: ""
     }
@@ -18,13 +35,13 @@ class AddNewTitle extends React.Component {
             })
         }
     }
-    titleChange = (e) => {
+    titleChange = (e: ChangeEvent<HTMLInputElement>) => {
         this.setState({
             error: false,
             inputValue: e.currentTarget.value
         })
     }
-    onKeyPress = (e) => {
+    onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             this.onAddItemClick();
         }
@@ -39,7 +56,8 @@ class AddNewTitle extends React.Component {
                        value={this.state.inputValue}
                        type="text"
                        placeholder={this.props.holder}/>
-                <button className={this.props.buttonStyle} onClick={this.onAddItemClick}>{this.props.buttonTitle}</button>
+                <button className={this.props.buttonStyle}
+                        onClick={this.onAddItemClick}>{this.props.buttonTitle}</button>
             </div>
         );
     }

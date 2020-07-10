@@ -1,7 +1,14 @@
 import React from 'react';
 import './TodoFooter.css';
 
-class TodoFooter extends React.Component {
+
+
+type OwnType = {
+    filterValue: string
+    changeFilter: (newFilterValue: string)=> void
+}
+
+class TodoFooter extends React.Component<OwnType> {
     state = {
         isHidden: false
     }
@@ -25,8 +32,6 @@ class TodoFooter extends React.Component {
                     <button className={classForActive} onClick={this.onActiveFilterClick}>Active</button>
                 </div>
                 }
-                {!this.state.isHidden && <span onClick={this.onHideFiltersClick}>hide</span>}
-                {this.state.isHidden && <span onClick={this.onShowFiltersClick}>show</span>}
             </div>
 
         );
